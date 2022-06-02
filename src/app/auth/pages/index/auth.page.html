@@ -1,0 +1,36 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Login</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <form [formGroup]="loginForm" (ngSubmit)="submitForm()" novalidate>
+    <ion-item lines="full">
+      <ion-label position="floating">Email</ion-label>
+      <ion-input type="text" formControlName="email"></ion-input>
+    </ion-item>
+    <ion-item lines="full">
+      <ion-label position="floating">Password</ion-label>
+      <ion-input type="password" formControlName="password"></ion-input>
+    </ion-item>
+    <ion-row>
+      <ion-col>
+        <ion-button type="submit" color="danger" expand="block" [disabled]="!this.loginForm.valid">Login</ion-button>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col class="login-info">
+        <small class="login-info_error" *ngIf="!this.loginForm.valid">
+          Please provide an email and a password to be able to login.
+        </small>
+        <small class="login-info_success" *ngIf="this.loginForm.valid">
+          Now you are able to login.
+        </small>
+      </ion-col>
+    </ion-row>
+
+  </form>
+</ion-content>

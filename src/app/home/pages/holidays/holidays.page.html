@@ -1,0 +1,21 @@
+<ion-content class="ion-padding">
+  <ion-grid>
+    <ion-row>
+      <ng-container *ngIf="countriesHolidays.length && !isLoading">
+      <ion-col size="12" sizeSm="6" sizeXl="4" *ngFor="let item of countriesHolidays" >
+        <app-country-detail
+          [countryDetail]="item"
+        >
+        </app-country-detail>
+      </ion-col>
+    </ng-container>
+    <ng-container *ngIf="!countriesHolidays.length && !isLoading">
+      <ion-col size="12" sizeSm="6" sizeXl="4" >
+        <small>
+          We could not fin data available for the selected country
+        </small>
+      </ion-col>
+    </ng-container>
+    </ion-row>
+  </ion-grid>
+</ion-content>

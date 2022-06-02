@@ -1,0 +1,25 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <!-- <ion-title>
+      {{pageTitle | async}}
+    </ion-title> -->
+    <ion-item lines="none">
+      <ion-label class="info">
+        {{pageTitle | async}}
+        <ion-label (click)="logOut()">
+          <ion-icon class="info-logout" name="power"></ion-icon>
+        </ion-label>
+      </ion-label>
+    </ion-item>
+
+    <ion-buttons slot="start" *ngIf="showBtn | async">
+      <ion-back-button (click)="navigate()"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-router-outlet></ion-router-outlet>
+</ion-content>
+
+
